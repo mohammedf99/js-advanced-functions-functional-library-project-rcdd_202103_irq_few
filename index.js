@@ -51,6 +51,8 @@ const fi = (function() {
       }
       return result;
     },
+    
+    
 
     functions: function(object) {
       let sortedArray = [];
