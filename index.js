@@ -93,7 +93,56 @@ const fi = (function() {
       });
     },
     
-    
+     flatten: function(collection, shallow) {
+      let flattenedCollection = [];
+
+    reduce: function() {
+      for (let i of collection) {
+        if (Array.isArray(i)) {
+          if (shallow === true) {
+            for (let j of i) {
+              flattenedCollection.push(j);
+            };
+          } else {
+            let result = this.flatten(i);
+            for (let j of result) {
+              flattenedCollection.push(j);
+            };
+          };
+        } else {
+          flattenedCollection.push(i);
+        };
+      };
+
+      return flattenedCollection;
+    },
+
+    uniq: function(collection, isSorted, callback = (x) => x ) {
+      const uniqueCollection = [];
+
+      for (const i of collection) {
+        let counter = 0;
+        for (const n of uniqueCollection) {
+          if (callback(n) === callback(i)) {
+            counter++;
+          };
+        };
+        if (counter < 1) {
+          uniqueCollection.push(i);
+        };
+      };
+
+      return uniqueCollection;
+    },
+
+
+    keys: function(object) {
+      return Object.keys(object);
+    },
+
+    values: function(object) {
+      return Object.values(object);
+    },
 
     functions: function(object) {
       let sortedArray = [];
