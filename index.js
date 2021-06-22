@@ -33,6 +33,24 @@ const fi = (function() {
       }
       return acc;
     },
+    
+        find: function(collection, callback) {
+      for (let element of collection) {
+        if (callback(element)) {
+          return element;
+        }
+      }
+    },
+
+    filter: function(collection, callback) {
+      let result = [];
+      for (let element of collection) {
+        if (callback(element)) {
+          result.push(element);
+        }
+      }
+      return result;
+    },
 
     functions: function() {
 
