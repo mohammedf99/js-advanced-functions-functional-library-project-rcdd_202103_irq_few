@@ -96,7 +96,6 @@ const fi = (function() {
      flatten: function(collection, shallow) {
       let flattenedCollection = [];
 
-    reduce: function() {
       for (let i of collection) {
         if (Array.isArray(i)) {
           if (shallow === true) {
