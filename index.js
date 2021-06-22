@@ -11,8 +11,13 @@ const fi = (function() {
       return collection;
     },
 
-    map: function() {
+    map: function(collection, callback) {
+      let result = [];
 
+      for (let element of Object.values(collection)){
+        result.push(callback(element));
+      }
+      return result;
     },
 
     reduce: function() {
