@@ -52,8 +52,15 @@ const fi = (function() {
       return result;
     },
 
-    functions: function() {
+    functions: function(object) {
+      let sortedArray = [];
 
+      for (let key in object) {
+        if (typeof object[key] === 'function') {
+          sortedArray.push(key);
+        }
+      }
+      return sortedArray.sort();
     },
 
 
