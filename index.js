@@ -52,6 +52,47 @@ const fi = (function() {
       return result;
     },
     
+    size: function(collection) {
+      return Object.values(collection).length;
+    },
+
+    first: function(collection, element) {
+      if (element){
+        return collection.slice(0, element);
+      }
+      else {
+        return collection[0];
+      }
+    },
+
+    last: function(collection, element) {
+      if (element){
+        return collection.slice(element * -1);
+      }
+      else {
+        return collection[collection.length - 1];
+      }
+    },
+
+    compact: function(collection) {
+      let result = [];
+
+      for (let element of collection) {
+        if (element) {
+          result.push(element);
+        }
+      }
+      return result;
+    },
+
+    sortBy: function(array, callback) {
+      let newArray = [...array];
+
+      return newArray.sort(function(a,b) {
+        return callback(a) - callback(b);
+      });
+    },
+    
     
 
     functions: function(object) {
